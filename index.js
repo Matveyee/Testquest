@@ -13,6 +13,7 @@ try{
     client.connect();
     console.log('База данных поключена');
 }catch (e) {
+    console.log('ошибка')
     console.log(e);
 }
 const ques = client.db().collection('questions');
