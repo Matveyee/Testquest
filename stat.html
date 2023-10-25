@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика</title>
+    <style type="text/CSS">
+        #header {
+            background-color: rgb(15, 15, 139);
+            color: white;
+            text-align: center;
+        }
+        .rectangle{
+          height: 25px;
+          width: 100%;
+          background-color: rgb(16, 69, 212);
+        }
+        .triangle-right {
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-left: 40px solid rgb(91, 107, 250);
+            border-bottom: 15px solid transparent;
+        }
+    </style>
+</head>
+<body>
+    <header id="header" ><h1>Prof test</h1></header>
+    <div id="getInfoButton" onclick="helpOne()" class="triangle-right"></div>
+    <div id="statistics" >
+
+    </div>
+    <script>
+        function getStat() {
+            return new Promise( (resolve,reject) => {
+              const xhr = new XMLHttpRequest();
+              xhr.open('GET','/getStat');
+              
+              xhr.onload = () => {
+
+                resolve(xhr.response);
+              }
+              xhr.send();
+            })
+        }
+        function helpOne() {
+          getStat().then( (objJson) => {
+            let data = JSON.parse(objJson)
+            console.log(data)
+            // let max = data.length;
+            let table = document.getElementById('statistics')
+            i = 0;
+            let count = 0;
+            for(let g of data) {
+                count++;
+            }
+            function procent(x) {
+                return (Math.trunc(x/count) * 100) + '%'
+            }
+            let an11 = 0;
+            let an12 = 0;
+            let an13 = 0;
+            let an21 = 0;
+            let an22 = 0;
+            let an23 = 0;
+            let an24 = 0;
+            let an31 = 0;
+            let an32 = 0;
+            let an41 = 0;
+            let an42 = 0;
+            let an51 = 0;
+            let an52 = 0;
+            let an53 = 0;
+            let an54 = 0;
+            let an61 = 0;
+            let an62 = 0;
+            let an63 = 0;
+            let an64 = 0;
+            let an71 = 0;
+            let an72 = 0;
+            let an73 = 0;
+            let an74 = 0;
+            let an81 = 0;
+            let an82 = 0;
+            let an83 = 0;
+            let an84 = 0;
+            let an91 = 0;
+            let an92 = 0;
+            let an93 = 0;
+            let an94 = 0;
+            //
+
+            for(let ob of data) {
+                if(ob.q1 == 'a1') {
+                    an11++;
+                }else if (ob.q1 == 'a2') {
+                    an12++;
+                }else if (ob.q1 == 'a3') {
+                    an13++;
+                }
+
+                if(ob.q2 == 'a1') {
+                    an21++;
+                }else if (ob.q2 == 'a2') {
+                    an22++;
+                }else if (ob.q2 == 'a3') {
+                    an23++;
+                }else if (ob.q2 == 'a4') {
+                    an24++;
+                }
+
+                if(ob.q3 == 'a1') {
+                    an31++;
+                }else if (ob.q3 == 'a2') {
+                    an32++;
+                }
+
+                if(ob.q4 == 'a1') {
+                    an41++;
+                }else if (ob.q4 == 'a2') {
+                    an42++;
+                }
+
+                if(ob.q5 == 'a1') {
+                    an51++;
+                }else if (ob.q5 == 'a2') {
+                    an52++;
+                }else if (ob.q5 == 'a3') {
+                    an53++;
+                }else if (ob.q5 == 'a4'){
+                    an54++;
+                }
+
+                if(ob.q6 == 'a1') {
+                    an61++;
+                }else if (ob.q6 == 'a2') {
+                    an62++;
+                }else if (ob.q6 == 'a3') {
+                    an63++;
+                }else if (ob.q6 == 'a4'){
+                    an64++;
+                }
+
+                if(ob.q7 == 'a1') {
+                    an71++;
+                }else if (ob.q7 == 'a2') {
+                    an72++;
+                }else if (ob.q7 == 'a3') {
+                    an73++;
+                }else if (ob.q7 == 'a4'){
+                    an74++;
+                }
+
+                if(ob.q8 == 'a1') {
+                    an81++;
+                }else if (ob.q8 == 'a2') {
+                    an82++;
+                }else if (ob.q8 == 'a3') {
+                    an83++;
+                }else if (ob.q8 == 'a4'){
+                    an84++;
+                }
+
+                if(ob.q9 == 'a1') {
+                    an91++;
+                }else if (ob.q9 == 'a2') {
+                    an92++;
+                }else if (ob.q9 == 'a3') {
+                    an93++;
+                }else if (ob.q9 == 'a4'){
+                    an94++;
+                }
+                
+            }
+            table.insertAdjacentHTML('afterbegin', `
+<p>
+<b>Если бы в школе было три кружка, какой бы Вы выбрали?</b><br>
+<br>
+Экономический -- ${procent(an11)}<br>
+Технический -- ${procent(an12)}<br>
+Литературный -- ${procent(an13)}<br>
+<br>
+<b>В интернете четыре статьи разного содержания.<br>
+Какая из них вызвала бы у Вас большую заинтересованность?</b><br>
+<br>
+О политике -- ${procent(an21)}<br>
+О новой научной теории -- ${procent(an22)}<br>
+О новом фильме -- ${procent(an23)}<br>
+О новой книге -- ${procent(an24)}<br>
+<br>
+<b>Какая из двух работ на свежем воздухе Вас больше бы привлекала?</b><br>
+<br>
+Pабота, связанная с постоянными передвижениями -- ${procent(an31)}<br>
+Pабота на одном месте -- ${procent(an31)}<br>
+<br>
+<b>Что лучше, работать на скучной работе за большие деньги,<br>
+или работать на интересной работе за небольшую плату?</b><br>
+<br>
+Скучная высокооплачиваемая работа -- ${procent(an41)}<br>
+Интересная низкооплачиваемая -- ${procent(an42)}<br>
+<br>
+<b>Что больше всего привлекает вас в работе?</b><br>
+<br>
+Креативность и самовыражение -- ${procent(an51)}<br>
+Работа с людьми и помощь другим -- ${procent(an52)}<br>
+Анализ и решение сложных проблем -- ${procent(an53)}<br>
+Работа с техникой, компьютерами и новыми технологиями -- ${procent(an54)}<br>
+<br>
+<b>Какими навыками вы обладаете или хотели бы развить?</b><br>
+<br>
+Художественное восприятие и творчество -- ${procent(an61)}<br>
+Коммуникативные и лидерские навыки -- ${procent(an62)}<br>
+Аналитическое мышление и логика -- ${procent(an63)}<br>
+Технические и информационные навыки -- ${procent(an64)}<br>
+<br>
+<b>Что вас больше всего интересует в области науки и технологий?</b><br>
+<br>
+Дизайн, искусственный интеллект и виртуальная реальность -- ${procent(an71)}<br>
+Медицина и здравоохранение -- ${procent(an72)}<br>
+Физика, математика и астрономия -- ${procent(an73)}<br>
+Робототехника и разработка программного обеспечения -- ${procent(an74)}<br>
+<br>
+<b>Каким образом вы предпочитаете учиться?</b><br>
+<br>
+Свобода выбора и возможность творческого самовыражения -- ${procent(an81)}<br>
+Работа в группе и совместное решение задач -- ${procent(an82)}<br>
+Систематическое изучение и анализ информации -- ${procent(an83)}<br>
+Практические задания и эксперименты -- ${procent(an84)}<br>
+<br>
+<b>Какую сферу деятельности вы<br>
+считаете наиболее важной в современном обществе?</b><br>
+<br>
+Искусство и культура -- ${procent(an91)}<br>
+Социальная работа и обслуживание людей -- ${procent(an92)}<br>
+Наука и исследования -- ${procent(an93)}<br>
+Технологии и инновации -- ${procent(an94)}<br>
+</p>
+            `);
+          });
+        }
+            
+        
+    </script>
+</body>
+</html>

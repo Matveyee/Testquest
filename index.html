@@ -10,34 +10,57 @@
             color: white;
             text-align: center;
         }
+        .rectangle{
+          height: 25px;
+          width: 100%;
+          background-color: rgb(16, 69, 212);
+    }
     </style>
 </head>
 <body>
     <header id="header" ><h1>Prof test</h1></header>
-    <form align="center" >
-        <p class="question" ><b>Как по вашему мнению расшифровывается аббревиатура &quot;ОС&quot;?</b></p>
-        <p><input type="radio" name="q1" value="a1">Офицерский состав<Br>
-        <input type="radio" name="q1" value="a2">Операционная система<Br>
-        <input type="radio" name="q1" value="a3">Большой полосатый мух</p>
-        <p class="question" ><b>В газете две статьи разного содержания.<br> Какая из них вызвала бы у Вас большую заинтересованность?</b></p>
-        <p><input type="radio" name="q2" value="a1">О машине нового типа<Br>
+    <form align="center" action="/getRes" method="post">
+        <p class="question" ><b>Если бы в школе было три кружка, какой бы Вы выбрали?</b></p>
+            <p><input type="radio" name="q1" value="a1">Экономический<Br>
+            <input type="radio" name="q1" value="a2">Технический<Br>
+            <input type="radio" name="q1" value="a3">Литературный</p>
+        <p class="question" ><b>В интернете четыре статьи разного содержания.<br> Какая из них вызвала бы у Вас большую заинтересованность?</b></p>
+            <p><input type="radio" name="q2" value="a1">О политике<Br>
             <input type="radio" name="q2" value="a2">О новой научной теории<Br>
-            <input type="radio" name="q2" value="a3">Что то еще</p>
+            <input type="radio" name="q2" value="a3">О новом фильме<br>
+            <input type="radio" name="q2" value="a3">О новой книге</p>
         <p class="question" ><b> Какая из двух работ на свежем воздухе Вас больше бы привлекала?</b></p>
-        <p><input type="radio" name="q3" value="a1">Pабота, связанная с постоянными передвижениями <br>(прораб, инженер, дорожный мастер)<Br>
-            <input type="radio" name="q3" value="a2">Pабота с машинами</p>
-            <p class="question" ><b> Какая из двух работ на свежем воздухе Вас больше бы привлекала?</b></p>
-        <p><input type="radio" name="q3" value="a1">Pабота, связанная с постоянными передвижениями <br>(прораб, инженер, дорожный мастер)<Br>
-            <input type="radio" name="q3" value="a2">Pабота с машинами</p>
-            <p class="question" ><b> Какая из двух работ на свежем воздухе Вас больше бы привлекала?</b></p>
-        <p><input type="radio" name="q3" value="a1">Pабота, связанная с постоянными передвижениями <br>(прораб, инженер, дорожный мастер)<Br>
-            <input type="radio" name="q3" value="a2">Pабота с машинами</p>
-            <p class="question" ><b> Какая из двух работ на свежем воздухе Вас больше бы привлекала?</b></p>
-        <p><input type="radio" name="q3" value="a1">Pабота, связанная с постоянными передвижениями <br>(прораб, инженер, дорожный мастер)<Br>
-            <input type="radio" name="q3" value="a2">Pабота с машинами</p>
-            <p class="question" ><b> Какая из двух работ на свежем воздухе Вас больше бы привлекала?</b></p>
-        <p><input type="radio" name="q3" value="a1">Pабота, связанная с постоянными передвижениями <br>(прораб, инженер, дорожный мастер)<Br>
-            <input type="radio" name="q3" value="a2">Pабота с машинами</p>
+            <p><input type="radio" name="q3" value="a1">Pабота, связанная с постоянными передвижениями<Br>
+            <input type="radio" name="q3" value="a2">Pабота на одном месте</p>
+        <p class="question" ><b>Что лучше, работать на скучной работе за большие деньги, <Br>или работать на интересной работе за небольшую плату?</b></p>
+            <p><input type="radio" name="q4" value="a1">Скучная высокооплачиваемая работа<Br>
+            <input type="radio" name="q4" value="a2">Интересная низкооплачиваемая<Br></p>
+        <p class="question" ><b>Что больше всего привлекает вас в работе?</b></p>
+            <p><input type="radio" name="q5" value="a1">Креативность и самовыражение<Br>
+            <input type="radio" name="q5" value="a1">Работа с людьми и помощь другим<Br>
+            <input type="radio" name="q5" value="a1">Анализ и решение сложных проблем<Br>
+            <input type="radio" name="q5" value="a1">Работа с техникой, компьютерами и новыми технологиями<Br></p>
+        <p class="question" ><b>Какими навыками вы обладаете или хотели бы развить?</b></p>
+            <p><input type="radio" name="q6" value="a1">Художественное восприятие и творчество<Br>
+            <input type="radio" name="q6" value="a1">Коммуникативные и лидерские навыки<Br>
+            <input type="radio" name="q6" value="a1">Аналитическое мышление и логика<Br>
+            <input type="radio" name="q6" value="a1">Технические и информационные навыки<Br></p>
+        <p class="question" ><b>Что вас больше всего интересует в области науки и технологий?</b></p>
+            <p><input type="radio" name="q7" value="a1">Дизайн, искусственный интеллект и виртуальная реальность<Br>
+            <input type="radio" name="q7" value="a1">Медицина и здравоохранение<Br>
+            <input type="radio" name="q7" value="a1">Физика, математика и астрономия<Br>
+            <input type="radio" name="q7" value="a1">Робототехника и разработка программного обеспечения<Br></p>
+        <p class="question" ><b>Каким образом вы предпочитаете учиться?</b></p>
+            <p><input type="radio" name="q8" value="a1">Свобода выбора и возможность творческого самовыражения<Br>
+            <input type="radio" name="q8" value="a1">Работа в группе и совместное решение задач<Br>
+            <input type="radio" name="q8" value="a1">Систематическое изучение и анализ информации<Br>
+            <input type="radio" name="q8" value="a1">Практические задания и эксперименты<Br></p>
+        <p class="question" ><b>Какую сферу деятельности вы <Br>считаете наиболее важной в современном обществе?</b></p>
+            <p><input type="radio" name="q9" value="a1">Искусство и культура<Br>
+            <input type="radio" name="q9" value="a1">Социальная работа и обслуживание людей<Br>
+            <input type="radio" name="q9" value="a1">Наука и исследования<Br>
+            <input type="radio" name="q9" value="a1">Технологии и инновацииBr></p>
+
         <p><input type="submit"></p>
     </form>
 </body>
